@@ -12,7 +12,7 @@ It looks up products in a MongoDB database and, when possible, pulls ingredients
 
 ## Tech Stack
 - **Language**: Python 3.10
-- **OCR**: EasyOCR (faster and easier to set up than Tesseract)
+- **OCR**: EasyOCR , simple and easy to use
 - **Computer Vision**: OpenCV (for image preprocessing)
 - **Database**: MongoDB (PyMongo)
 - **API**: Open Food Facts API
@@ -25,7 +25,11 @@ Make sure you have Python installed, then run:
 ```bash
 pip install -r requirements.txt
 ```
-
+Or you can use uv to install dependencies:
+```bash
+uv add numpy easyocr opencv-python pymongo pillow requests openfoodfacts streamlit
+```
+Note : uv is a lot faster than pip and it also installs dependencies automatically. 
 ### 2. Run the app
 Start the Streamlit server:
 ```bash
@@ -43,7 +47,6 @@ Upload an image from the `sample_images` folder (or your own) and the app will:
 - `ocr_helper.py`: OCR utilities (image preprocessing, text extraction, barcode/keyword parsing).
 - `database.py`: MongoDB connection and search helpers.
 - `api_helper.py`: Tiny wrapper around the Open Food Facts API (v2 product-by-barcode).
-- `main.py`: Simple CLI entry that just tells you to run the Streamlit app.
 - `sample_images/`: A set of test images (Chocolates, Biscuits, Electronics) to verify the scanner.
 
 ## How the pieces work together
@@ -62,8 +65,18 @@ Upload an image from the `sample_images` folder (or your own) and the app will:
 
 ## Possible improvements
 - Better OCR tuning and more languages.
+- Use even more processing and other techniques to improve OCR accuracy.
+- Can use more advanced techniques to improve OCR accuracy.
 - Smarter matching logic between OCR text and MongoDB entries.
 - Nicer Streamlit UI with more product details and filters.
+- could utilize the open food facts API to get more information about the product.
 
-Credits: Antigravity, Claude — for idea and approach.
+
+## Output Screenshots : 
+
+![Sample Image 1](Screenshots%20of%20Working%20of%20the%20Project/sample%20image%201.png)
+
+![Sample Image 3](Screenshots%20of%20Working%20of%20the%20Project/sample%20image%203.png)
+
+![Sample Image 4](Screenshots%20of%20Working%20of%20the%20Project/sample%20image%204.png)
 
